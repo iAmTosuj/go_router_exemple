@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:untitled4/pages/splash_page.dart';
+import 'package:get/get.dart';
+import 'package:untitled4/bloc/auth_state/auth_state_cubit.dart';
+import 'package:untitled4/bloc/saved_link/saved_link_cubit.dart';
+import 'package:untitled4/router/router_settings.dart';
 
 void main() {
-  runApp(const MyApp());
+  Get.put(AuthStateCubit());
+  Get.put(SavedLinkCubit());
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final _router = RouterSettings.settings;
 
-  // This widget is the root of your application.
+  MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter go router',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SplashPage(),
+    return MaterialApp.router(
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
+      title: 'Go Router example',
     );
   }
 }
