@@ -8,7 +8,7 @@ class SplashPageCubit extends Cubit<SplashPageState> {
   SplashPageCubit() : super(SplashPageState());
 
   void init() async {
-    Future.delayed(const Duration(milliseconds: 500));
+    Future.delayed(const Duration(seconds: 1));
 
     Get.find<AuthStateCubit>().setAppInit();
   }
