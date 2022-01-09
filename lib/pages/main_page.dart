@@ -28,6 +28,11 @@ class MainPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const Text(
+                        'The bloc will stop working after opening the child page or bottom sheet'),
+                    const SizedBox(
+                      width: 16,
+                    ),
                     ElevatedButton(
                       onPressed: () {
                         _mainCubit.increase();
